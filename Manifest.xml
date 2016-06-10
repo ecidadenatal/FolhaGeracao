@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <plugin name="FolhaGeracao" label="Geração da Folha" plugin-version="1.0" ecidade-version="2.3.50" id-modulo="952">
+    <files>
+      <file name="FolhaGeracao.xml"  path="/modification/xml/FolhaGeracao.xml" />
+    </files>
+  </plugin>
+</manifest>

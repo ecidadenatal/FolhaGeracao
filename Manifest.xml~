@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <plugin name="FolhaContraCheque" label="Contra Cheque da Folha" plugin-version="1.0" ecidade-version="2.3.50" id-modulo="952">
+    <files>
+      <file name="FolhaContraCheque.xml"  path="/modification/xml/FolhaContraCheque.xml" />
+    </files>
+  </plugin>
+</manifest>

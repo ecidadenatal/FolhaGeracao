@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<modification>
+  <name>Folha Geração</name>
+  <ecidade-version>2.3.50</ecidade-version>
+
+  <file path='pes4_gerafolha003.php'>
+    <operation>
+      <search regex="true"><![CDATA[(r70_estrut\s*,)]]></search>
+      <add>
+        <![CDATA[$1
+                                rh02_rhtipoapos,]]></add>
+    </operation>
+  </file>
+
+  <file path='pes4_gerafolha004.php'>
+    <operation>
+      <search regex="true"><![CDATA[(AjustePrevidencia::\$aValorTeto.*;)]]></search>
+      <add>
+        <![CDATA[    if( $pessoal[$Ipessoal]["rh02_rhtipoapos"] == 4 ){
+      AjustePrevidencia::$aValorTeto[$pessoal[$Ipessoal]['r01_numcgm']] = ( $inssirf_[0]["r33_tinati"] * 2 ) ;
+    }else{
+      $1
+    }]]></add>
+    </operation>
+
+    <operation>
+      <search regex="true"><![CDATA[if.*\$r07_valor.*\>.*\$inssirf.*r33_tinati.*\{]]></search>
+      <add>
+        <![CDATA[if (  $pessoal[$Ipessoal]["rh02_rhtipoapos"] == 4 && $r07_valor > ( $inssirf_[0]["r33_tinati"] * 2 )  ){
+      $r07_valor = $r07_valor - ( $inssirf_[0]["r33_tinati"] * 2 );
+    }elseif( $pessoal[$Ipessoal]["rh02_rhtipoapos"] != 4 && $r07_valor >  $inssirf_[0]["r33_tinati"]  ){]]></add>
+    </operation>
+  </file>
+</modification>
