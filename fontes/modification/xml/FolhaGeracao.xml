@@ -16,7 +16,7 @@
     <operation>
       <search regex="true"><![CDATA[(AjustePrevidencia::\$aValorTeto.*;)]]></search>
       <add>
-        <![CDATA[    if( $pessoal[$Ipessoal]["rh02_rhtipoapos"] == 4 ){
+        <![CDATA[    if( $pessoal[$Ipessoal]["rh02_portadormolestia"] == 't' ){
       AjustePrevidencia::$aValorTeto[$pessoal[$Ipessoal]['r01_numcgm']] = ( $inssirf_[0]["r33_tinati"] * 2 ) ;
     }else{
       $1
@@ -26,9 +26,9 @@
     <operation>
       <search regex="true"><![CDATA[if.*\$r07_valor.*\>.*\$inssirf.*r33_tinati.*\{]]></search>
       <add>
-        <![CDATA[if (  $pessoal[$Ipessoal]["rh02_rhtipoapos"] == 4 && $r07_valor > ( $inssirf_[0]["r33_tinati"] * 2 )  ){
+        <![CDATA[if (  $pessoal[$Ipessoal]["rh02_portadormolestia"] == 't' && $r07_valor > ( $inssirf_[0]["r33_tinati"] * 2 )  ){
       $r07_valor = $r07_valor - ( $inssirf_[0]["r33_tinati"] * 2 );
-    }elseif( $pessoal[$Ipessoal]["rh02_rhtipoapos"] != 4 && $r07_valor >  $inssirf_[0]["r33_tinati"]  ){]]></add>
+    }elseif( $pessoal[$Ipessoal]["rh02_portadormolestia"] != 't' && $r07_valor >  $inssirf_[0]["r33_tinati"]  ){]]></add>
     </operation>
   </file>
 </modification>
